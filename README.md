@@ -47,9 +47,6 @@ The DeviceRepository abstracts access to data (Firebase Firestore and Firebase R
 Backend (Firebase):
 Firebase provides Authentication, Firestore for data storage, and Cloud Messaging (FCM) for push notifications.
 
-Project Structure
-swift
-Копіювати
 EnergyApp/
 ├── app/
 │   ├── google-services.json           // Download from Firebase Console
@@ -79,6 +76,7 @@ EnergyApp/
 ├── settings.gradle.kts                // Settings, including dependencyResolutionManagement
 └── gradle/
     └── libs.versions.toml             // Version Catalog for managing dependencies and plugins
+
 Setup Instructions
 Clone the Repository:
 

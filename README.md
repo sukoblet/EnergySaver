@@ -1,52 +1,49 @@
-EnergyApp
-EnergyApp is an Android application built using Kotlin, Jetpack Compose, and Firebase. This sample project demonstrates key functionalities such as user authentication, device management, energy consumption simulation, and notifications—all integrated in a modern MVVM architecture.
+# Energy App
 
-Table of Contents
-Features
+**Energy App** is a sample Android application built using Kotlin, Jetpack Compose, and Firebase. It demonstrates user authentication, device management, energy consumption simulation, and push notifications, all while following modern Android architecture principles.
 
-Architecture
+## Features
 
-Project Structure
+- **User Authentication**  
+  Provides email and password-based registration, login, and password reset flows using Firebase Authentication.
 
-Setup Instructions
+- **Simulated Energy Consumption**  
+  The app calculates energy usage in real-time based on each device’s power rating and how long it has been turned on.
 
-Usage
+- **Device Management**  
+  Users can add, edit, and remove devices. Each device has a name, power rating (in watts), and on/off status.
 
-Dependencies
+- **Usage Limits & Notifications**  
+  Users can set daily, weekly, or monthly energy usage thresholds. The app monitors total usage and notifies users (via Firebase Cloud Messaging) when limits are exceeded.
 
-License
+- **Additional Settings**  
+  Options for enabling/disabling local and push notifications, auto-optimization, cost coefficients, and custom update intervals.
 
-Features
-User Authentication:
-Firebase Authentication is used for user registration, login, and password reset.
+## Architecture
 
-Device Management:
-Users can add, edit, and delete devices. Each device has properties such as name, power rating, and on/off status.
+The project follows the **MVVM** pattern with **Kotlin Coroutines** and **Flow** for asynchronous data processing and state management.
 
-Simulated Energy Consumption:
-The app calculates energy consumption in real time for each device based on its power rating and time of operation.
+- **UI Layer (Jetpack Compose)**  
+  - Composable screens (e.g., `LoginScreen`, `DeviceListScreen`, `SettingsScreen`) declared with `@Composable` functions.  
+  - Observes state from ViewModels to update UI reactively.
 
-Usage Limits & Notifications:
-Users can set daily, weekly, and monthly energy thresholds. The app monitors overall energy usage and notifies users when limits are exceeded.
+- **ViewModel Layer**  
+  - Business logic in `AuthViewModel`, `DeviceViewModel`, `UsageLimitViewModel`.  
+  - Uses Coroutines & Flow to handle background tasks and push updates to the UI.
 
-Additional Settings:
-Options for enabling/disabling local and push notifications, cost coefficient, and auto-optimization settings are provided.
+- **Repository Layer**  
+  - Data operations (CRUD) with Firebase Firestore and Realtime Database are abstracted in `DeviceRepository`.  
+  - This isolates Firebase logic from the rest of the application, making it easier to test and maintain.
 
-Architecture
-EnergyApp uses a modern MVVM (Model-View-ViewModel) architecture:
+- **Backend (Firebase)**  
+  - **Authentication**: User login, registration, password resets.  
+  - **Firestore / Realtime Database**: Storing device info, usage thresholds, and other settings.  
+  - **Cloud Messaging (FCM)**: Sending push notifications when usage limits are exceeded.
 
-UI Layer (Jetpack Compose):
-Built using Compose, the UI consists of declarative Composable functions (e.g., LoginScreen, DeviceListScreen, SettingsScreen) that observe state changes from ViewModels.
+## Project Structure
 
-ViewModel Layer:
-ViewModels such as AuthViewModel, DeviceViewModel, and UsageLimitViewModel manage UI state using Kotlin Flow and Coroutines.
 
-Repository Layer:
-The DeviceRepository abstracts access to data (Firebase Firestore and Firebase Realtime Database), handling CRUD operations for device data and settings.
-
-Backend (Firebase):
-Firebase provides Authentication, Firestore for data storage, and Cloud Messaging (FCM) for push notifications.
-
+```bash
 EnergyApp/
 ├── app/
 │   ├── google-services.json           // Download from Firebase Console
@@ -76,69 +73,61 @@ EnergyApp/
 ├── settings.gradle.kts                // Settings, including dependencyResolutionManagement
 └── gradle/
     └── libs.versions.toml             // Version Catalog for managing dependencies and plugins
+```
 
-Setup Instructions
-Clone the Repository:
 
-bash
-Копіювати
-git clone https://github.com/yourusername/EnergyApp.git
-cd EnergyApp
-Firebase Setup:
+## Getting Started
 
-Create a project in the Firebase Console.
+**Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/EnergyApp.git
+   cd EnergyApp
+```
 
-Add an Android app to your Firebase project using the package name com.example.energyapp.
-
-Download the google-services.json file and place it in the app/ directory.
-
-Enable Firebase Authentication (Email/Password), Firestore, and Firebase Cloud Messaging (FCM) in the Firebase Console.
-
-Configure Gradle:
+**Configure Gradle:**
 
 This project uses Gradle Version Catalog. Ensure that your settings.gradle.kts contains the proper dependencyResolutionManagement and pluginManagement blocks.
 
 Sync the project with Gradle files in Android Studio.
 
-JDK Setup:
+**JDK Setup:**
 
 Ensure that you have JDK 11 or higher installed and configured as your JAVA_HOME.
 
 Verify JDK settings in Android Studio under File > Project Structure > SDK Location.
 
-Usage
-Build the App:
-Open the project in Android Studio and click on "Build" → "Make Project" or run ./gradlew assembleDebug.
+**Firebase Setup**
 
-Run the App:
-Use Android Studio’s run button or execute ./gradlew installDebug from the command line.
+Create a Firebase project in the Firebase Console.
 
-Explore the Code:
+Register your Android app with the matching package name.
 
-UI Layer: Check the Composable functions in the ui package.
+Download the google-services.json file and place it in the app/ directory.
 
-ViewModel Layer: Business logic is managed in the viewmodel package.
+Enable Firebase Authentication (Email/Password), Firestore, and Cloud Messaging.
 
-Repository Layer: Data operations (CRUD) with Firebase are handled in the repository package.
+**Build and Run**
 
-Backend Integration: Firebase is used for authentication, real-time database, and notifications.
+Open the project in Android Studio.
 
-Dependencies
-The project uses the following key dependencies:
+Sync the Gradle files and run the app on an emulator or physical device.
 
-Kotlin: 2.0.0
+## Dependencies
+Key libraries and tools include:
 
-Android Gradle Plugin: 8.8.0
+Kotlin (2.0.0)
 
-Jetpack Compose & Material3: Using Compose BOM (2024.04.01) and Material3 components.
+Android Gradle Plugin (8.8.0)
 
-Firebase: Authentication, Firestore, and Messaging.
+Jetpack Compose (with Material3)
 
-Kotlin Coroutines & Flow: For asynchronous programming.
+Firebase (Auth, Firestore, Messaging)
 
-AndroidX Components: Core KTX, Lifecycle, Navigation, etc.
+Coroutines & Flow
 
-Dependencies and plugin versions are managed centrally via the gradle/libs.versions.toml file.
+Navigation Compose (optional)
 
-License
+All dependencies are managed via gradle/libs.versions.toml (Version Catalog).
+
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.

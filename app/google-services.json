@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "722036884924",
+    "firebase_url": "https://energyapp-3a518-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "energyapp-3a518",
+    "storage_bucket": "energyapp-3a518.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722036884924:android:b1ebeac03783ed303f17b9",
+        "android_client_info": {
+          "package_name": "com.eti.energysaver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_kt-ixTn2YhuyNL_zfM4UVPv2KAVtsBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
